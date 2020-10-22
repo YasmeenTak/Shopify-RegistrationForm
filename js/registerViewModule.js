@@ -40,15 +40,15 @@ function CreateAccountViewModel() {
       .then((token) => {
         token = token.user.l;
         db.collection('UserInfo').add({
-          name: self.userName(),
-          email: self.userEmail(),
-          mobile: self.userMobile(),
+          name: self.firstName(),
+          email: self.emailAddress(),
+          mobile: self.phoneNumber(),
         });
         setCookie('tokenFromFirebase', token);
-        self.userName = '';
+        self.firstName = '';
         self.userPassword = '';
-        self.userEmail = '';
-        self.userMobile = '';
+        self.emailAddress = '';
+        self.phoneNumber = '';
         window.location.replace('catalog-page.html');
       })
       .catch(function (error) {
