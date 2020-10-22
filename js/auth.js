@@ -4,8 +4,8 @@ registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // get user info
-  const email = signupForm['email'].value;
-  const password = signupForm['userPassword'].value;
+  const email = registerForm['email'].value;
+  const password = registerForm['userPassword'].value;
   console.log(email, password, 'hereeeeee');
 
   // sign up the user
@@ -14,6 +14,6 @@ registerForm.addEventListener('submit', (e) => {
     // close the signup modal & reset form
     const modal = document.querySelector('#register-form');
     M.Modal.getInstance(modal).close();
-    signupForm.reset();
+    registerForm.reset();
   });
 });

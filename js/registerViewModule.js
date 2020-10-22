@@ -35,33 +35,33 @@ function CreateAccountViewModel() {
       errors.showAllMessages();
       return;
     }
-    auth
-      .createUserWithEmailAndPassword(self.emailAddress(), self.userPassword())
-      .then((token) => {
-        token = token.user.l;
-        db.collection('UserInfo').add({
-          name: self.firstName(),
-          email: self.emailAddress(),
-          mobile: self.phoneNumber(),
-        });
-        setCookie('tokenFromFirebase', token);
-        self.firstName = '';
-        self.userPassword = '';
-        self.emailAddress = '';
-        self.phoneNumber = '';
-        window.location.replace('catalog-page.html');
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        if (errorCode == 'auth/weak-password') {
-          alert('The password is too weak.');
-        } else {
-          alert(errorMessage);
-        }
-        console.log(error);
-      });
+    // auth
+    //   .createUserWithEmailAndPassword(self.emailAddress(), self.userPassword())
+    //   .then((token) => {
+    //     token = token.user.l;
+    //     db.collection('UserInfo').add({
+    //       name: self.firstName(),
+    //       email: self.emailAddress(),
+    //       mobile: self.phoneNumber(),
+    //     });
+    //     setCookie('tokenFromFirebase', token);
+    //     self.firstName = '';
+    //     self.userPassword = '';
+    //     self.emailAddress = '';
+    //     self.phoneNumber = '';
+    //     window.location.replace('catalog-page.html');
+    //   })
+    //   .catch(function (error) {
+    //     // Handle Errors here.
+    //     var errorCode = error.code;
+    //     var errorMessage = error.message;
+    //     if (errorCode == 'auth/weak-password') {
+    //       alert('The password is too weak.');
+    //     } else {
+    //       alert(errorMessage);
+    //     }
+    //     console.log(error);
+    //   });
 
     self.hasBeenSubmitted(true);
 
@@ -73,7 +73,7 @@ function CreateAccountViewModel() {
     console.log({
       firstName: self.firstName(),
       emailAddress: self.emailAddress(),
-      subscriptionType: self.subscriptionType(),
+      //subscriptionType: self.subscriptionType(),
     });
   };
 }

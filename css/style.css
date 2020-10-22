@@ -30,6 +30,7 @@ p {
   max-width: 500px;
   margin: 0 auto;
   orientation: center;
+  margin-bottom: 40px;
 }
 .card header {
   padding: 1em;
@@ -161,4 +162,8 @@ input.error {
 
 #nav_text {
   color: white;
+}
+
+#copyright {
+  text-align: center;
 }
