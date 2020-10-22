@@ -1,40 +1,42 @@
 var LoginViewModel = function () {
   var self = this;
 
-  self.emailAddress = ko.observable();
-  self.userPassword = ko.observable();
+  self.emailAddress = ko.observable('').extend({
+    required: true,
+    email: true,
+  });
 
-  self.login = () => {
-    auth
-      .signInWithEmailAndPassword(self.emailAddress(), self.userPassword())
-      .then((token) => {
-        setCookie('TokenFromFirebase', token.user.l);
-        window.location.replace('catalog-page.html');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  self.userPassword = ko.observable('').extend({
+    required: true,
+    minLength: 8,
+  });
+
+  self.hasBeenSubmitted = ko.observable(false);
+
+  window.firstName = self.firstName;
+
+  self.handleSubmit = () => {
+    //Check for errors
+    var errors = ko.validation.group(self);
+    if (errors().length > 0) {
+      errors.showAllMessages();
+      return;
+    }
+
+    self.hasBeenSubmitted(true);
+
+    //Form is valid
+    console.log('submit the form!');
+    //Api call would go here
+    //
+    //
+    console.log({
+      emailAddress: self.emailAddress(),
+      userPassword: self.userPassword(),
+      //subscriptionType: self.subscriptionType(),
+    });
   };
 };
-var form = document.querySelector('#formId');
-ko.applyBindings(new LoginViewModel(), form);
 
-// heler function
-
-function setCookie(cname, cvalue) {
-  document.cookie = cname + '=' + cvalue + ';' + ';path=/';
-}
-
-function getCookie(cname) {
-  var cookies = document.cookie
-    .split(';')
-    .map((cookie) => cookie.split('='))
-    .reduce(
-      (accumulator, [key, value]) => ({
-        ...accumulator,
-        [key.trim()]: decodeURIComponent(value),
-      }),
-      {}
-    );
-  return cookies[cname];
-}
+const knockoutApp = document.querySelector('#knockout-app');
+ko.applyBindings(new LoginViewModel(), knockoutApp);
