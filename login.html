@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+
+  
+    
+  </head>
+  <body>
+    <!-- ----------------------------------Navbar---------------------------------------- -->
+    <nav
+      class="navbar navbar-light navbar-expand-lg fixed-top bg-dark clean-navbar"
+    >
+      <div class="container">
+        <a id="nav_text" class="navbar-brand logo" href="#">Shopify</a
+        ><button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+              <a id="nav_text" class="nav-link" href="register.html">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ---------------------------------- Login ---------------------------------------- -->
+
+    <div id="knockout-app" class="card">
+      <div
+        class="card-section"
+        style="display: none"
+        data-bind="visible: hasBeenSubmitted"
+      >
+        <h2>Login successfully!</h2>
+      </div>
+
+      <div class="card-section" data-bind="visible: !hasBeenSubmitted()">
+        <h2>Login</h2>
+        <form data-bind="submit: handleSubmit">
+          <!-- ----------------------------------Name---------------------------------------- -->
+          <div class="field">
+            <label for="email">Email Address*</label>
+            <input
+              data-bind="value: emailAddress, css: { error: emailAddress.error() && emailAddress.isModified() }"
+              placeholder="you@mail.com"
+              id="email"
+              type="text"
+            />
+          </div>
+          <!-- ----------------------------------Password---------------------------------------- -->
+          <div class="field">
+            <label for="password">Your Password*</label>
+            <input
+              data-bind="value: userPassword, css: { error: userPassword.error() && userPassword.isModified() }"
+              id="userPassword"
+              type="password"
+            />
+          </div>
+
+          <input type="submit" value="Login" href="dashboard.html"/>
+        </form>
+      </div>
+    </div>
+
+    <!-- ---------------------------------- Footer ---------------------------------------- -->
+    <footer class="page-footer dark" style="padding: 0px">
+    
+        <p id="copyright">© 2020 Copyright: Yasmeen Abu Kwaik</p>
+      </div>
+    </footer>
+    <!-- Footer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+
+    <script type="text/javascript" src="./js/loginViewModule.js"></script>
+  </body>
+</html>
