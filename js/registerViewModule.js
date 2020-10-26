@@ -49,7 +49,7 @@ function CreateAccountViewModel() {
         self.userPassword = '';
         self.emailAddress = '';
         self.phoneNumber = '';
-        window.location.replace('catalog-page.html');
+        window.location.replace('dashbord.html');
       })
       .catch(function (error) {
         // Handle Errors here.
