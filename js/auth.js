@@ -10,7 +10,7 @@ registerForm.addEventListener('submit', (e) => {
 
   // sign up the user
   auth.createUserWithEmailAndPassword(email, password).then((cred) => {
-    console.log(cred.user);
+    console.log(cred.user.l);
     // close the signup modal & reset form
     const modal = document.querySelector('#knockout-app');
     M.Modal.getInstance(modal).close();
@@ -28,11 +28,16 @@ loginForm.addEventListener('submit', (e) => {
   const password = loginForm['userPassword'].value;
 
   // log the user in
-  auth.signInWithEmailAndPassword(email, password).then((cred) => {
-    console.log(cred.user);
-    // close the signup modal & reset form
-    const modal = document.querySelector('#knockout-app');
-    M.Modal.getInstance(modal).close();
-    loginForm.reset();
-  });
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then((cred) => {
+      console.log(cred.user);
+      // close the signup modal & reset form
+      const modal = document.querySelector('#knockout-app');
+      M.Modal.getInstance(modal).close();
+      loginForm.reset();
+    })
+    .catch((err) => {
+      console.log(err, 'errrrrrrrrrr');
+    });
 });
