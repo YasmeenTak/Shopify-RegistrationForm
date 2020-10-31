@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Selection For ORDER !!!!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
+    <script type="text/javascript" src="knockout-2.1.0.js"></script>
+    <script type="text/javascript" src="choose-product.js"></script>
+
+    <script type="text/javascript">
+      $(getProducts);
+    </script>
+  </head>
+  <body>
+    <p id="copyright">Shopfiy ORDER</p>
+
+    <h1>Product Selection For ORDER !!!!<br /></h1>
+
+    <div id="content">
+      <h2>CLick to Choose a Product to submit your order:</h2>
+
+      <ul id="products" data-bind="foreach: products">
+        <li
+          data-bind="click: $parent.chooseProduct, css: { selected: $parent.productSelected(id) }"
+        >
+          <img
+            data-bind="attr: { src: 'images/' + thumbImage, alt: name }"
+          /><br />
+          <span data-bind="text: name"></span>
+        </li>
+      </ul>
+
+      <div id="chosenProduct" data-bind="visible: chosenProduct">
+        <h2>
+          <span data-bind="text: chosenProduct().name"></span>
+          <span
+            id="productPrice"
+            data-bind="text: '$'+chosenProduct().price"
+          ></span>
+        </h2>
+        <img
+          data-bind="attr: { src: 'images/' + chosenProduct().mainImage, alt: chosenProduct().name }"
+        />
+
+        <div id="productInfo">
+          <p data-bind="text: chosenProduct().description"></p>
+
+          Quantity:
+          <input
+            type="number"
+            name="qty"
+            id="qty"
+            data-bind="value: qty"
+            min="1"
+            max="9"
+          />
+          <button id="buy" data-bind="click: buyProduct">
+            Order Now ($<span data-bind="text: totalPrice"></span>)
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

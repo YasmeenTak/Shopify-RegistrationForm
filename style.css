@@ -1,0 +1,261 @@
+/* Add some margin to the page and set a default font and colour */
+
+body {
+  margin: 30px;
+  font-family: "Georgia", serif;
+  color: #333;
+}
+
+/* Give headings and other elements their own font */
+
+h1, h2, h3, h4, #products li, #productInfo li {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+h1 {
+  font-size: 120%;
+}
+
+/* Main content area */
+
+#content {
+  margin: 40px auto;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: 20px 0;
+  background: #C7CCE8;
+  overflow: hidden;
+  max-width: 1340px;
+}
+
+#content h2, #content h3 {
+  margin-left: 20px;
+}
+
+/* Product list */
+
+#products {
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#products li {
+  display: block;
+  float: left;
+  width: 270px;
+  margin: 0 0 20px 20px;
+  text-align: center;
+  background: rgba(148,155,187,.5);
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 30px 20px 20px 20px;
+  cursor: pointer;
+}
+
+#products li.selected {
+  background: #fff;
+}
+
+#products li img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #999;
+  margin-bottom: 10px;
+}
+
+/* Chosen Product box */
+
+#chosenProduct {
+  margin-left: 20px;
+}
+
+#chosenProduct h2 {
+  margin: 0;
+  padding: 10px 0 10px 20px;
+  width: 620px;
+  background: rgba(255,255,255,.6);
+}
+
+#chosenProduct img {
+  width: 300px;
+  height: 300px;
+  border: 10px solid #fff;
+  float: left;
+  display: block;
+}
+
+#productPrice {
+  font-size: 80%;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+#productInfo {
+  float: left;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  background: #fff;
+}
+
+#productInfo p {
+  margin-top: 0;
+  font-size: 90%;
+  height: 76px;
+}
+
+#productInfo h3 {
+  margin: 20px 0 10px 0;
+  padding: 0;
+  line-height: 1.2em;
+}
+
+/* Product options */
+
+#productInfo ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#productInfo ul li {
+  background: rgba(148,155,187,.5);
+  color: #555;
+  margin: 4px 0;
+  overflow: hidden;
+  line-height: 1.3em;
+}
+
+#productInfo ul li.selected {
+  background: #A0AFF6;
+  color: #000;
+}
+
+#productInfo ul li input[type="checkbox"] {
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+#productInfo ul li label {
+  display: block;
+  width: 100%;
+  padding: 8px 4px;
+  float: left;
+  cursor: pointer;
+}
+
+#productInfo ul li label span {
+  vertical-align: middle;
+}
+
+/* Quantity field and Buy Now button */
+
+#qty {
+  border: 1px solid #999;
+  width: 40px;
+  padding: 6px;
+  font-size: 15px;
+  margin-top: 10px;
+  line-height: 16px;
+}
+
+#buy {
+  background: #fc7;
+  border: 1px solid #999;
+  padding: 6px;
+  width: 170px;
+  float: right;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 10px;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+/* Media queries for responsive layout */
+
+@media screen and (max-width: 1400px) {
+
+  #content {
+    width: 1010px;
+  }
+
+}
+
+@media screen and (max-width: 1070px) {
+
+  #content {
+    width: 680px;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  #content {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #products li {
+    width: 280px;
+  }
+
+  #chosenProduct h2 {
+    width: 300px;
+  }
+
+  #chosenProduct img, #productInfo {
+    float: none;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    margin: 10px;
+    text-align: center;
+  }
+
+  body p {
+    text-align: center;
+  }
+
+  #content {
+    max-width: 320px;
+    margin: 0;
+    padding: 0;
+  }
+
+  #products li {
+    width: 240px;
+    margin-left: 20px;
+  }
+
+  #chosenProduct {
+    margin-left: 0;
+  }
+
+
+  #content h2, #content h3 {
+    margin-left: 0;
+    padding-left: 0;
+    width: 320px;
+    text-align: center;
+  }
+
+  #productInfo h3 {
+    margin-left: -10px;
+  }
+
+}
